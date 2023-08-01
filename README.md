@@ -300,8 +300,7 @@
 <summary> 내용 보기</summary>
 <br>
 
--
-
+- GoRoute 에 builder 대신 pageBuilder 를 사용해서 스크린 이동간에 에니메이션을 추가할수 있다.
 </details>
 
 ## 11. Error Screen
