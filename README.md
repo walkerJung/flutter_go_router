@@ -128,7 +128,31 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- pop 함수를 사용하면 현재 라우터 스택에서 뒤로 한칸 갈수 있다.
+- pop 함수에 파라미터를 전달하면 pop 으로 이동되는 화면에서 받아볼수 있다.
+- push 에서는 async 와 await 를 사용해서 값을 기다려야 한다.
+
+    ```
+        <!-- Push -->
+
+        ElevatedButton(
+            onPressed: () async {
+                final result = await context.push('/pop/return');
+
+                print(result);
+            },
+            child: const Text('Push Pop Return Screen'),
+        ),
+
+        <!-- Pop -->
+
+        ElevatedButton(
+            onPressed: () {
+              context.pop('Walking!!');
+            },
+            child: const Text('Pop'),
+        ),
+    ```
 
 </details>
 
