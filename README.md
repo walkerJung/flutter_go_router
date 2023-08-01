@@ -256,8 +256,43 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRouter 에 redirect 속성을 사용해서 스크린 이동이 제한되어야 하는 상태일때 redirect 를 시킬수 있다.
+- redirect 는 context 와 state 를 인자로 받고, state 는 GoRouterState 이다.
+- return 을 string 으로 하면 해당 path 로 이동한다.
+- return 을 null 로 하면 이동하려던 path 로 이동한다.
+- GoRouter 의 redirect 속성은 모든 라우트 전체에 적용이된다.
+- 위와 같은 방법으로 똑같이 GoRoute 에도 redirect 를 사용하면, 해당 라우트로 이동할때만 redirect 를 사용한다.
 
+    ```
+        <!-- 전체 라우터에 적용되는 redirect -->
+
+        final router = GoRouter(
+            redirect: (context, state) {
+                // return string (path) -> 해당 라우트로 이동한다.
+                // return null -> 이동하려던 라우트로 이동한다.
+                if (state.location == '/login/private' && !authState) {
+                return '/login';
+                }
+                return null;
+            }
+            ...
+        )
+
+        <!-- 해당 라우트로 이동할때 적용되는 redierect -->
+
+        GoRoute(
+            path: 'private',
+            builder: (context, state) {
+                return const PrivateScreen();
+            },
+            redirect: (context, state) {
+                if (!authState) {
+                    return '/login2';
+                }
+                return null;
+            },
+        )
+    ```
 </details>
 
 ## 10. Transition Animation
