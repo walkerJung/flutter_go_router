@@ -98,8 +98,29 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRouter 는 nasted 되어있는 구조의 라우터를 그대로 그려주는 장점을 가지고 있다.
+- push 는 현재 라우터 스택 상태에서 이동하는 스크린을 추가하는 형태로 이동한다.
+- go 는 라우터 구조 형태 대로 라우터 스택을 새로 생성한다.
 
+    ```
+        <!-- push_screen 에서 context.go('/basic') 을 하면 라우터 구조 형태로 새로 생성된다.  -->
+
+        ElevatedButton(
+            onPressed: () {
+              context.go('/basic');
+            },
+            child: const Text('Go Basic'),
+        ),
+
+        <!-- push_screen 에서 context.push('/basic') 을 하면 현재 라우터 구조 위에 추가가 된다. -->
+
+        ElevatedButton(
+            onPressed: () {
+                context.push('/basic');
+            },
+            child: const Text('Push Basic'),
+        ),
+    ```
 </details>
 
 ## 5. Pop 함수
