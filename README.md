@@ -323,6 +323,9 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRouter 의 log 를 보려면 debugLogDiagnostics: true, 를 추가하면 된다.
 
+    ```
+        debugLogDiagnostics: true,
+    ```
 </details>
