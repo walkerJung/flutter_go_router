@@ -308,8 +308,14 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRouter 의 errorBuilder 속성을 사용하여 Error Page 를 만들수 있다.
+- errorBuilder 는 context, state 를 받기 때문에 어떤 에러가 발생했는지 state 를 통해서 알수 있다.
 
+    ```
+        errorBuilder: (context, state) => ErrorScreen(
+            error: state.error.toString(),
+        ),    
+    ```
 </details>
 
 ## 12. Logging

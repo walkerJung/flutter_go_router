@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_go_router/screens/10_transition_screen_1.dart';
 import 'package:flutter_go_router/screens/10_transition_screen_2.dart';
+import 'package:flutter_go_router/screens/11_error_screen.dart';
 import 'package:flutter_go_router/screens/1_basic_screen.dart';
 import 'package:flutter_go_router/screens/2_named_screen.dart';
 import 'package:flutter_go_router/screens/3_push_screen.dart';
@@ -168,4 +169,7 @@ final router = GoRouter(
       ],
     ),
   ],
+  errorBuilder: (context, state) => ErrorScreen(
+    error: state.error.toString(),
+  ),
 );
