@@ -98,7 +98,7 @@
 <summary> 내용 보기</summary>
 <br>
 
-- GoRouter 는 nasted 되어있는 구조의 라우터를 그대로 그려주는 장점을 가지고 있다.
+- GoRouter 는 nested 되어있는 구조의 라우터를 그대로 그려주는 장점을 가지고 있다.
 - push 는 현재 라우터 스택 상태에서 이동하는 스크린을 추가하는 형태로 이동한다.
 - go 는 라우터 구조 형태 대로 라우터 스택을 새로 생성한다.
 
@@ -153,7 +153,6 @@
             child: const Text('Pop'),
         ),
     ```
-
 </details>
 
 ## 6. Path Parameters
@@ -161,8 +160,29 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- path 에 : 를 사용해서 변수를 받을수 있다.
+- GoRouterState.of(context) 를 사용하면 라우터의 상태를 가지고 올수 있다.
+- GoRouter 에서는 builder 안의 return widget 이 중요한게 아니라 path 가 중요하다.
 
+    ```
+        GoRoute(
+          path: 'path_param/:id',
+          builder: (context, state) {
+            return const PathParamScreen();
+          },
+          routes: [
+            GoRoute(
+              path: ':name',
+              builder: (context, state) {
+                return const PathParamScreen();
+              },
+            ),
+          ],
+        ),
+
+
+        Text('Path Param : ${GoRouterState.of(context).pathParameters}'),        
+    ```
 </details>
 
 ## 7. Query Parameters
