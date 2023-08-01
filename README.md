@@ -190,8 +190,24 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- Query Parameter 는 map 형식으로 쿼리스트링을 전달한다.
+- context.push 를 할때 Uri() 를 사용하여 path 와 queryParameters 를 설정한다.
+- Query Parameter 역시 GoRouterState.of(state) 에서 확인할수 있다.
+    ```
+        Text('Query Parameter : ${GoRouterState.of(context).queryParameters}'),
 
+        onPressed: () {
+              context.push(
+                Uri(
+                  path: '/query_param',
+                  queryParameters: {
+                    'name': 'walkerJung',
+                    'age': '31',
+                  },
+                ).toString(),
+            );
+        }, 
+    ```
 </details>
 
 ## 8. Shell Route
