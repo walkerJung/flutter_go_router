@@ -38,8 +38,31 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRoute 안에 routes 속성에 다시 GoRoute 를 추가할수 있다.
 
+    ```
+        GoRoute(
+            path: '/',
+            builder: (context, state) {
+                return const RootScreen();
+            },
+            routes: [
+                GoRoute(
+                    path: 'basic',
+                    builder: (context, state) {
+                        return const BasicScreen();
+                    },
+                )
+            ],
+        )    
+    ```
+- 스크린 이동이 일어나야 하는 곳에서 context.go('/path') 를 사용하면 된다.
+
+    ```
+        onPressed: () {
+            context.go('/basic');
+        },
+    ```
 </details>
 
 ## 3. Go Named 함수
