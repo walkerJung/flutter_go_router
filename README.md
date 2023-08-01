@@ -215,8 +215,40 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- 이론적으로는 네비게이터를 중첩시켜 사용하는 기능이다.
+- ShellRoute 는 builder 와 routes 필드를 설정하여 구성할수 있다.
+- builder 에는 child 파라미터가 추가되고, 이 child 들로 구성된다.
+- builder 에서 파라미터로 받고있는 child 는 routes 속성에 있는 라우트들을 의미한다.
 
+    ```
+        <!-- NestedScreen 을 NestedChildScreen 들로 구성한 상태 -->
+
+        ShellRoute(
+          builder: (context, state, child) {
+            return NestedScreen(child: child);
+          },
+          routes: [
+            GoRoute(
+              path: 'nested/a',
+              builder: (context, state) => const NestedChildScreen(
+                routeName: '/nested/a',
+              ),
+            ),
+            GoRoute(
+              path: 'nested/b',
+              builder: (context, state) => const NestedChildScreen(
+                routeName: '/nested/b',
+              ),
+            ),
+            GoRoute(
+              path: 'nested/c',
+              builder: (context, state) => const NestedChildScreen(
+                routeName: '/nested/c',
+              ),
+            )
+          ],
+        )
+    ```
 </details>
 
 ## 9. Redirection
