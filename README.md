@@ -70,7 +70,26 @@
 <summary> 내용 보기</summary>
 <br>
 
--
+- GoRoute 의 name 속성을 사용하면 라우터에 이름을 지정하여 이동할수 있다.
+- 라우터 경로가 길어질 경우 goNamed 함수를 사용하는게 편하다.
+
+    ```
+        <!-- name 속성에 라우터 이름 정의 -->
+
+        GoRoute(
+          path: 'named',
+          name: 'named_screen',
+          builder: (context, state) {
+            return const NamedScreen();
+          },
+        ),
+
+        <!-- 사용하는 부분 -->
+
+        onPressed: () {
+            context.goNamed('named_screen');
+        },
+    ```
 
 </details>
 
